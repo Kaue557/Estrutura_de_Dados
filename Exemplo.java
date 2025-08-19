@@ -17,10 +17,10 @@ public class Exemplo {
         }
         for(int consumo : consumos){ //nao utilizar se quiser alterar a variavel, isso faz uma copia, nao acessa o original
             if(consumo > 5000){
-                System.out.printf("Consumo anomalo: %.1d\n: ", consumo);
+                System.out.printf("Consumo anomalo: %d\n", consumo);
                 anomalos++;
             }
         }
-        System.out.printf("Quantidade de consumo anomalo: %.1d\n: ", anomalos);
+        System.out.printf("Quantidade de consumo anomalo: %d\n: ", anomalos);
     }
 }
