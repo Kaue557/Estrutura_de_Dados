@@ -30,6 +30,7 @@ public class Pilha{
         }else {
             throw new Exception("Underflow - Esvaziamento de pilha");
         } 
+    }
 
     public char topo() throws Exception{
         if(!isEmpty()){
@@ -39,10 +40,10 @@ public class Pilha{
         }    
     }
 
-        public int sizeElements(){
-            return topoPilha + 1;
-        }
+    public int sizeElements(){
+        return topoPilha + 1;
     }
+    
 
     public boolean isEmpty(){
         return topoPilha == -1;
