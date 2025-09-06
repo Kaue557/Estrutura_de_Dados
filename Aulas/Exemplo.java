@@ -1,7 +1,3 @@
-/*
-
-*/
-
 import java.util.Scanner;
 
 public class Exemplo {
@@ -20,7 +16,7 @@ public class Exemplo {
                 System.out.printf("Consumo anomalo: %d\n", consumo);
                 anomalos++;
             }
-        }
+        }entrada.close();
         System.out.printf("Quantidade de consumo anomalo: %d\n: ", anomalos);
     }
 }
