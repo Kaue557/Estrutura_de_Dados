@@ -19,7 +19,7 @@ public class BalanceamentoParenteses {
         }
     }
     public static boolean isBalanceada(String exp){
-        Pilha pilha = new Pilha();
+        Pilha<Character> pilha = new Pilha<>();
         char c;
         for(int i = 0; i < exp.length(); i++){
             c = exp.charAt(i);

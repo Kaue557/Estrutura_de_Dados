@@ -1,13 +1,12 @@
-public class Pilha{
+public class Pilha <T>{ // indicando que será pilha do tipo GENERICO
     //atributos
-
     private final static int TAM_DEFAULT = 100;
     private int topoPilha;
-    private char elementos[];
+    private T elementos[]; qq
 
     //construtores
     public Pilha(int tamanho){
-        elementos = new char[tamanho];
+        elementos = (T[]) new Object[tamanho];
         topoPilha = -1;
     }
 
@@ -16,15 +15,15 @@ public class Pilha{
     }
 
     // metodos
-    public void push(int n) throws Exception{ //se eu vou usar exception no metodo coloca isso aí no começo
+    public void push(T n) throws Exception{ //se eu vou usar exception no metodo coloca isso aí no começo
         if(!isFull()){
-            elementos[++topoPilha] = (char)n; //tava chiando, (char) não tava aí
+            elementos[++topoPilha] = n;
       } else{
             throw new Exception("Overflow - Estouro de Pilha");
         }
     }
 
-    public char pop()throws Exception{
+    public T pop()throws Exception{
         if(!isEmpty()){
             return elementos[topoPilha--];
         }else {
@@ -32,7 +31,7 @@ public class Pilha{
         } 
     }
 
-    public char topo() throws Exception{
+    public T topo() throws Exception{
         if(!isEmpty()){
             return elementos[topoPilha];
         } else {

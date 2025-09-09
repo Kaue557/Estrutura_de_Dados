@@ -48,10 +48,6 @@ public class PilhaEx5 {
                 }
             }
 
-            // Passo 2: devolver de aux para p, restaurando a ordem original
-            while (!aux.isEmpty()) {
-                p.push(aux.pop());
-            }
         } catch (Exception e) {
                 System.out.println("Erro ao manipular a pilha: " + e.getMessage());
             }
@@ -59,8 +55,8 @@ public class PilhaEx5 {
         // Exibir pilha final
         System.out.println("Pilha final (sem múltiplos de 3):");
         try {
-            while (!p.isEmpty()) {
-                System.out.print(p.pop() + " ");
+            while (!aux.isEmpty()) {
+                System.out.print(aux.pop() + " ");
             }
             System.out.println();
         } catch (Exception e) {
