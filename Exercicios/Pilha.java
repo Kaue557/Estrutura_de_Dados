@@ -16,10 +16,10 @@ public class Pilha{
     }
 
     // metodos
-    public void push(char e) throws Exception{ //se eu vou usar exception no metodo coloca isso aí no começo
+    public void push(int n) throws Exception{ //se eu vou usar exception no metodo coloca isso aí no começo
         if(!isFull()){
-            elementos[++topoPilha] = e;
-        } else{
+            elementos[++topoPilha] = (char)n; //tava chiando, (char) não tava aí
+      } else{
             throw new Exception("Overflow - Estouro de Pilha");
         }
     }
