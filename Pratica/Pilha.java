@@ -1,44 +1,58 @@
 public class Pilha {
-    private int[] dados;
-    private int topo;
+    private int[] elementos;
+    private int topoPilha;
+    private final static int TAM_DEFAULT = 100;
 
-    // Construtor
-    public Pilha(int capacidade) {
-        dados = new int[capacidade];
-        topo = -1;
+    // Construtor com tamanho definido
+    public Pilha(int tamanho) {
+        elementos = new int[tamanho];
+        topoPilha = -1;
     }
 
-    // Insere elemento na pilha
-    public void push(int valor) {
-        if (topo < dados.length - 1) {
-            dados[++topo] = valor;
+    // Construtor padrão
+    public Pilha() {
+        this(TAM_DEFAULT);
+    }
+
+    // Empilhar
+    public void push(int n) throws Exception {
+        if (!isFull()) {
+            elementos[++topoPilha] = n;
         } else {
-            System.out.println("Erro: Pilha cheia!");
+            throw new Exception("Overflow - Estouro de Pilha");
         }
     }
 
-    // Remove elemento do topo da pilha
-    public int pop() {
-        if (topo >= 0) {
-            return dados[topo--];
+    // Desempilhar
+    public int pop() throws Exception {
+        if (!isEmpty()) {
+            return elementos[topoPilha--];
         } else {
-            System.out.println("Erro: Pilha vazia!");
-            return -1; // valor de erro
+            throw new Exception("Underflow - Pilha vazia");
         }
     }
 
-    // Verifica se está vazia
+    // Ver topo
+    public int topo() throws Exception {
+        if (!isEmpty()) {
+            return elementos[topoPilha];
+        } else {
+            throw new Exception("Pilha vazia");
+        }
+    }
+
+    // Tamanho atual
+    public int sizeElements() {
+        return topoPilha + 1;
+    }
+
+    // Está vazia?
     public boolean isEmpty() {
-        return topo == -1;
+        return topoPilha == -1;
     }
 
-    // Mostra o topo sem remover
-    public int peek() {
-        if (topo >= 0) {
-            return dados[topo];
-        } else {
-            System.out.println("Pilha vazia!");
-            return -1;
-        }
+    // Está cheia?
+    public boolean isFull() {
+        return topoPilha == elementos.length - 1;
     }
 }
