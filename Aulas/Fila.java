@@ -33,4 +33,21 @@ public class Fila <T> {
             System.out.println("Overflow");
         }
     }
+
+    public int totalElementos(){ //OPCIONAL
+        return qtde;
+    }
+
+    public T dequeue(){
+        if(!isEmpty()){
+            T aux;
+            aux = e[inicio];
+            inicio = ++inicio % e.length; // circularidade do inicio 
+            qtde--;
+            return aux;
+        }else{
+            System.out.println("Underflow");
+            return null;
+        }
+    }
 }
