@@ -21,6 +21,8 @@ public class Main {
                 + produto.preco + ", "
                 + produto.quantidade);
 
+        System.out.println(produto);
+
         sc.close();
     }
 }
