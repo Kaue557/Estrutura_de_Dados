@@ -23,6 +23,23 @@ public class Main {
 
         System.out.println(produto);
 
+        System.out.println();
+        System.out.println("Digite o numero de produtos a ser adicionado ao estoque: ");
+        int quantidade = sc.nextInt();
+        produto.adicionaProduto(quantidade);
+
+        System.out.println();
+        System.out.println("Dados atualizados: " + produto);
+
+        System.out.println();
+        System.out.println("Digite o numero de produtos a serem removidos do estoque: ");
+        quantidade = sc.nextInt();
+        produto.removerProduto(quantidade);
+
+        System.out.println();
+        System.out.println("Dados atualizados: " + produto);
+
+
         sc.close();
     }
 }
