@@ -4,17 +4,15 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        Calculadora calc = new Calculadora();
-
-        System.out.println("Digite o raio: ");
+        System.out.print("Digite o raio: ");
         double raio = sc.nextDouble();
 
-        double c = calc.circunferencia(raio);
-        double v = calc.volume(raio);
+        double c = Calculadora.circunferencia(raio);
+        double v = Calculadora.volume(raio);
 
         System.out.printf("Circunferencia = %.2f%n", c);
         System.out.printf("Volume = %.2f%n", v);
-        System.out.printf("PI = %.2f%n", calc.PI);
+        System.out.printf("PI = %.2f%n", Calculadora.PI);
 
 ;
         sc.close();
