@@ -1,3 +1,4 @@
+package Aula_Contador;
 public class Contador {
     // atributos (variaveis de instancia)
     int valor;
