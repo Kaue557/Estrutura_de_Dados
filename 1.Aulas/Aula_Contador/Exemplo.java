@@ -1,3 +1,4 @@
+package Aula_Contador;
 import java.util.Scanner;
 
 public class Exemplo {
