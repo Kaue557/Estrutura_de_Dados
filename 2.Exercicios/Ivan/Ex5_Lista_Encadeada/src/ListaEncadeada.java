@@ -22,12 +22,18 @@ public class ListaEncadeada<T>{
         return this.tamanho; // RETORNA O TAMANHO
     }
 
+
     public boolean isEmpty(){
         return this.tamanho == 0;
     }
 
     public void inverte(){
-       // NAO SEEEEEEEEEEEEEEI
+        if (this.tamanho <= 1) {
+            return; // Lista de tamanho 0 ou 1 já está "invertida"
+        }
+
+        // CODIGO
+
     }
 
     @Override

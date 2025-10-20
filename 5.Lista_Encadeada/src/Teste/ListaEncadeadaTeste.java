@@ -3,7 +3,6 @@ public class ListaEncadeadaTeste {
         ListaEncadeada<Integer> lista = new ListaEncadeada<>();
         lista.adiciona(1);
 
-        System.out.println(lista);
         System.out.println("Tamanho da lista: " + lista.getTamanho());
 
         lista.adiciona(2);
@@ -11,6 +10,26 @@ public class ListaEncadeadaTeste {
 
         lista.adiciona(3);
         System.out.println(lista);
+
+        //lista.limpa();
+        //System.out.println(lista);
+
+        // busca por elemento
+        System.out.println("BUSCA POR ELEMENTO");
+        System.out.println("posicao do elemento: " + lista.busca(1));
+        System.out.println("posicao do elemento: " + lista.busca(2));
+        System.out.println("posicao do elemento: " + lista.busca(3));
+        System.out.println("posicao do elemento: " + lista.busca(0));
+
+        System.out.println();
+
+        // busca por posicao
+        System.out.println("BUSCA POR POSICAO");
+        System.out.println("elemento nesta pos: " + lista.buscaPorPosicao(0));
+        System.out.println("elemento nesta pos: " + lista.buscaPorPosicao(1));
+        System.out.println("elemento nesta pos: " + lista.buscaPorPosicao(2));
+        //System.out.println(lista.buscaPorPosicao(-1));
+        //System.out.println(lista.buscaPorPosicao(4));
 
     }
 }
