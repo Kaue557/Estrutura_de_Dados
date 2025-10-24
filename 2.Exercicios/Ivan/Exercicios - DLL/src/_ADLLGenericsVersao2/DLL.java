@@ -23,10 +23,12 @@ public class DLL<T> {
 	}
 	// isFull(): verifica se a lista está cheia, retornando "true" se cheia
 	// "false" se não cheia.
-	public boolean isFull() {
+	public boolean isFull() { // este metodo está dando problema no insertAscending
 		Node<T> aux = new Node<T>();
 		return aux == null;
 	}
+	
+
 	// getSize(): retorna o tamanho da lista (total de elementos armazenados).
 	public int getSize() { return size; }
 	

@@ -15,7 +15,7 @@ public class _ADLLGenericsVersao2 {
 	//  trabalhadores na lista duplamente ligada (DLL) func.
 	public static void bancoDeDados(DLL<Trabalhador> func) {
 		func.insertAscending(1, new Trabalhador(1, 25, "1165822", 'M', 5000.0f, "Analista Jr."));
-		func.insertAscending(2, new Trabalhador(2, 22, "1263814", 'M', 3000.0f, "Auxiliar Administrativo."));
+		func.insertAscending(2, new Trabalhador(2, 22, "1263814", 'M', 3000.0f, "Aux. Admin."));
 		func.insertAscending(3, new Trabalhador(3, 27, "1066325", 'F', 5000.0f, "Analista Jr."));
 		func.insertAscending(4, new Trabalhador(4, 35, "1005116", 'M', 7000.0f, "Programador Sr."));
 		func.insertAscending(5, new Trabalhador(5, 45, "1465881", 'F', 7000.0f, "Gerente Jr."));
@@ -49,6 +49,12 @@ public class _ADLLGenericsVersao2 {
 		func.showDescending();
 		*/
 
-        func.showDescending();
+		
+		Trabalhador t1 = new Trabalhador(11, 30, "Joao123", 'M', 20.0f, "Analista");
+		func.insertMiddle(t1);
+
+		func.showDescending();
+
+
 	}
 }
