@@ -5,9 +5,10 @@ public class Node<T>{
 	private T data;
 	private	Node<T> left, right;
 	
-	public	Node() {
-		this(-1, null, null, null);
-	}
+	public Node(T data) {
+    this(-1, data, null, null);
+}
+
 	
 	public Node(int key, T data, Node<T> left, Node<T> right){
 			this.key = key;

@@ -198,15 +198,41 @@ public class DLL<T> {
 		}
 	}
 
-    // FUNCAO PARA INSERIR NO MEIO DA LISTA (RELATIVO AO TAMANHO(?))
-    public boolean insertMiddle(int size, T data){
-        Node<T> pAnda = this.head, pAnt = null;
+    // FUNCAO PARA INSERIR NO MEIO DA LISTA (INDEPENDENTE DO TAMANHO)
+    public boolean insertMiddle(T data) {
+    if (isEmpty()) return false; // nao da pra inserir em lista vazia
 
-        while(pAnda != (getSize()/2)){ // ARRUMAR - enquanto nao for metade do tamanho da lista, andar
-            pAnda.getRight();
+		int meio = size / 2;
+		Node<T> pAnda = head;
 
-        }
+		// CORRE ATE O MEIO DA LISTA
+		for (int i = 0; i < meio; i++){
+			pAnda = pAnda.getRight();
+		}
+
+		// inserir após pAnda (não importa se par ou ímpar)
+		/*
+		 primeiro linkamos o novo node com os vizinhos,
+		 depois os vizinhos com o novo node
+		 */
+		Node<T> novo = new Node<>(data);
+		novo.setRight(pAnda.getRight());
+		novo.setLeft(pAnda);
+		pAnda.getRight().setLeft(novo);
+		pAnda.setRight(novo);
+		
+		size++;
+    	return true;
     }
+
+	/* FUNCAO PARA INSERIR NO FIM DA LISTA
+	public boolean insertEnd(int size, T data){
+		Node<T> novo = new Node<>(data);
+		
+		
+		return true;
+	}
+	*/
 
 	@Override
 	public String toString() {
