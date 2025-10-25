@@ -23,9 +23,8 @@ public class DLL<T> {
 	}
 	// isFull(): verifica se a lista está cheia, retornando "true" se cheia
 	// "false" se não cheia.
-	public boolean isFull() { // este metodo está dando problema no insertAscending
-		Node<T> aux = new Node<T>();
-		return aux == null;
+	public boolean isFull() {
+		return false;
 	}
 	
 
@@ -70,7 +69,7 @@ public class DLL<T> {
 	// insertAscending(int Key, T data): Insere um novo elemento na DLL na ordem
 	// crescente
 	public boolean insertAscending(int Key, T data){
-		if (isFull()) return false;
+		if (isFull()) return false; // desnecessario*
 		
 		// Cria um novo no
 		Node<T> novoNo = new Node<T>(Key, data, null, null);
@@ -213,6 +212,7 @@ public class DLL<T> {
 		}
 
 		// inserir após pAnda (não importa se par ou ímpar)
+        // ---------ERRADO(?) ESTA INSERINDO UM DEPOIS DO MEIO---------
 		/*
 		 primeiro linkamos o novo node com os vizinhos,
 		 depois os vizinhos com o novo node
@@ -227,14 +227,24 @@ public class DLL<T> {
     	return true;
     }
 
-	/* FUNCAO PARA INSERIR NO FIM DA LISTA
-	public boolean insertEnd(int size, T data){
-		Node<T> novo = new Node<>(data);
-		
-		
-		return true;
+	// FUNCAO PARA INSERIR NO FIM DA LISTA
+	public boolean insertEnd(T data){
+        Node<T> novo = new Node<>(data);
+        Node<T> pAnda = head; // inicia o pAnda (que nao vai andar)
+        // nao precisa correr ate o fim da lista(?) ja que ela eh circular
+
+        /*
+		 primeiro linkamos o novo node com os vizinhos,
+		 depois os vizinhos com o novo node
+		 */
+        novo.setLeft(pAnda.getLeft());
+        novo.setRight(pAnda);
+        pAnda.getLeft().setRight(novo);
+        pAnda.setLeft(novo);
+
+        return true;
 	}
-	*/
+
 
 	@Override
 	public String toString() {
