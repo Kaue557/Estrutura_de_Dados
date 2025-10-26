@@ -33,7 +33,28 @@ public class ListaEncadeada<T>{
         return removido;
     }
 
-    // FUNCAO REMOVER DO MEIO
+    // FUNCAO REMOVE DO FINAL
+    public T removeFinal(){
+        if(this.tamanho == 0){
+            throw new RuntimeException("Lista esta vazia!");
+        }
+
+        if(this.tamanho == 1){ // se tiver apenas um elemento reaproveita o outro metodo
+            return this.removeInicio();
+        }
+
+        No<T> penultimoNo = this.buscaNo(this.tamanho - 2);
+        T removido = penultimoNo.getProximo().getElemento();
+
+        // LOGICA EM SI
+        penultimoNo.setProximo(null); // o penultimo aponta para nulo
+        this.ultimo = penultimoNo; // o ultimo se torna o penultimo (o que nao foi removido)
+        this.tamanho--;
+
+        return removido;
+    }
+
+    // FUNCAO REMOVER QUALQUER POSICAO
 
 
 
