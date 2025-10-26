@@ -28,8 +28,16 @@ public class ListaEncadeadaTeste {
         System.out.println("elemento nesta pos: " + lista.buscaPorPosicao(0));
         System.out.println("elemento nesta pos: " + lista.buscaPorPosicao(1));
         System.out.println("elemento nesta pos: " + lista.buscaPorPosicao(2));
-        //System.out.println(lista.buscaPorPosicao(-1));
-        //System.out.println(lista.buscaPorPosicao(4));
+
+
+        System.out.println();
+
+        int removido = lista.removeInicio();
+        System.out.printf("elemento removido: %d", removido);
+
+        System.out.println();
+
+        System.out.println("Nova lista: " + lista);
 
     }
 }

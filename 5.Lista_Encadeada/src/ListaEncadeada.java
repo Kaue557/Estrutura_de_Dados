@@ -16,6 +16,27 @@ public class ListaEncadeada<T>{
         this.tamanho++;
     }
 
+    // FUNCAO REMOVE DO INICIO
+    public T removeInicio(){ // retorno pode ser boolean ou void, por exemplo
+        if(this.tamanho == 0){
+            throw new RuntimeException("Lista esta vazia!");
+        }
+
+        T removido = this.inicio.getElemento(); // guarda o elemento removido p/ mostrar depois
+        this.inicio = this.inicio.getProximo(); // agora o inicio eh o prox node
+        this.tamanho--; // diminui o tamanho da lista
+
+        if(this.tamanho == 0){
+            this.ultimo = null;
+        }
+
+        return removido;
+    }
+
+    // FUNCAO REMOVER DO MEIO
+
+
+
     public int getTamanho(){
         return this.tamanho; // RETORNA O TAMANHO
     }

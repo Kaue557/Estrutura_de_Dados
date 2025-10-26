@@ -21,8 +21,7 @@ public class DLL<T> {
 	public boolean isEmpty() { // Verifica se DLL está vazia
 		return head == null;
 	}
-	// isFull(): verifica se a lista está cheia, retornando "true" se cheia
-	// "false" se não cheia.
+	// isFull(): verifica se a lista está cheia, retornando sempre false pois a alocacao eh dinamica
 	public boolean isFull() {
 		return false;
 	}
