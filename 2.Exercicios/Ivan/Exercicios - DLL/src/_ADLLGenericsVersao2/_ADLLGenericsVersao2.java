@@ -49,11 +49,13 @@ public class _ADLLGenericsVersao2 {
 		func.showDescending();
 		*/
 
-		
 		Trabalhador t1 = new Trabalhador(11, 30, "Joao123", 'M', 20.0f, "Analista");
 		func.insertMiddle(t1);
 
-		func.showDescending();
+        Trabalhador t2 = new Trabalhador(12, 35, "Maria123", 'M', 40.0f, "Analista");
+        func.insertEnd(t2);
+
+		func.showAscending();
 
 
 	}

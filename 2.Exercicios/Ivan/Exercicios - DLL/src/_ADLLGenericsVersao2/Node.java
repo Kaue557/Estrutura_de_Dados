@@ -9,7 +9,6 @@ public class Node<T>{
     this(-1, data, null, null);
 }
 
-	
 	public Node(int key, T data, Node<T> left, Node<T> right){
 			this.key = key;
 			this.data = data;

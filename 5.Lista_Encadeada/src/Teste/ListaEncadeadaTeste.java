@@ -28,8 +28,26 @@ public class ListaEncadeadaTeste {
         System.out.println("elemento nesta pos: " + lista.buscaPorPosicao(0));
         System.out.println("elemento nesta pos: " + lista.buscaPorPosicao(1));
         System.out.println("elemento nesta pos: " + lista.buscaPorPosicao(2));
-        //System.out.println(lista.buscaPorPosicao(-1));
-        //System.out.println(lista.buscaPorPosicao(4));
 
+
+        System.out.println();
+
+        // TESTE REMOVE DO INICIO
+        int removido = lista.removeInicio();
+        System.out.printf("elemento removido (inicio): %d", removido);
+
+        System.out.println();
+
+        System.out.println("Nova lista: " + lista);
+
+        System.out.println();
+
+        // TESTE REMOVE DO FINAL
+        removido = lista.removeFinal(); // pode mudar o nome para "removidoFinal", mas nesse caso s/ problema
+        System.out.printf("elemento removido(final): %d", removido);
+
+        System.out.println();
+
+        System.out.println("Nova lista: " + lista);
     }
 }
