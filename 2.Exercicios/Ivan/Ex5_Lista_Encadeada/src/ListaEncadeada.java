@@ -5,6 +5,7 @@ public class ListaEncadeada<T>{
     private No<T> ultimo;
     private int tamanho = 0; // DECLARACAO E INICIA O TAMANHO DA LISTA
     // (neste caso nao eh obrigatorio inicializar o tipo primitivo, mas eh bom especificar)
+    
 
     public void adiciona(T elemento){
         No<T> celula = new No<T>(elemento);
@@ -33,7 +34,18 @@ public class ListaEncadeada<T>{
         }
 
         // CODIGO
+        No<T> pAnda = this.inicio;
+        No<T> anterior = null; // pois o novo final da lista vai apontar pra nada
+        No<T> proximo;
 
+        for(int i = 0; i < this.tamanho; i++){
+            proximo = pAnda.getProximo();
+            pAnda.setProximo(anterior);
+            anterior = pAnda;
+            pAnda = proximo;
+        }
+        this.ultimo = this.inicio;
+        this.inicio = anterior;
     }
 
     @Override
