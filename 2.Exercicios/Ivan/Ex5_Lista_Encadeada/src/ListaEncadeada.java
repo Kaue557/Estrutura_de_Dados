@@ -1,3 +1,4 @@
+package Ex5_Lista_Encadeada.src;
 // 5. Fazer um metodo da classe LinkedList que inverte o conteúdo da lista ligada. Prototipo: public void inverte( ).
 
 public class ListaEncadeada<T>{
