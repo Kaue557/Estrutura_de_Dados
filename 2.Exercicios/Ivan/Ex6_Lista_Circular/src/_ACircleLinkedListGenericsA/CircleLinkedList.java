@@ -292,22 +292,22 @@ public class CircleLinkedList<T> {
 
 	// METODO INVERTE -----------------------------------------------------
 	public void inverte(){
-		Node<T> proximo; // Ponteiro para o proximo node
-		Node<T> pAnda = this.head; // Ponteiro que anda na lista ligada	
-		Node<T> anterior = this.tail;  // Ponteiro anterior ao que anda
+        if(size <= 1){
+            return;
+        }
 
-		if(size <= 1){
-			return;
-		}
-		
-		while(pAnda != this.tail){
-			proximo = pAnda.getProx();
+        Node<T> anterior = this.tail;  // Ponteiro anterior ao que anda
+		Node<T> pAnda = this.head; // Ponteiro que anda na lista ligada
+        Node<T> proximo = pAnda.getProx(); // Ponteiro para o proximo node
+
+
+		while(proximo != this.head){
 			pAnda.setProx(anterior);
-			anterior = this.tail.getProx();
+			anterior = pAnda;
 			pAnda = proximo;
-
+            proximo = proximo.getProx();
 		}
-		pAnda.setProx(head);
+		pAnda.setProx(anterior);
 		this.tail = this.head;
 		this.head = pAnda;
 	}
