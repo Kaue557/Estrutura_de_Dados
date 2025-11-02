@@ -1,4 +1,4 @@
-package _ADLLGenericsVersao2;
+package DLLGenericsVersao2;
 
 
 //Classe _ADLLGenericsVersao2: encarregada de executar alguns 
@@ -9,7 +9,7 @@ package _ADLLGenericsVersao2;
 //
 //Autor 1: Ivan Carlos Alcântara de Oliveira.
 //Data da Criação: 10/10/2024. 15h.
-public class _ADLLGenericsVersao2 {
+public class DLLGenericsVersao2 {
 	
 	// bancoDeDados(DLL<Trabalhador> func): realiza o cadastro de 10
 	//  trabalhadores na lista duplamente ligada (DLL) func.
@@ -47,15 +47,22 @@ public class _ADLLGenericsVersao2 {
 		func.showAscending();
 		System.out.println("\nFuncionários em ordem decrescente: ");
 		func.showDescending();
-		*/
+
 
 		Trabalhador t1 = new Trabalhador(11, 30, "Joao123", 'M', 20.0f, "Analista");
 		func.insertMiddle(t1);
 
         Trabalhador t2 = new Trabalhador(12, 35, "Maria123", 'M', 40.0f, "Analista");
         func.insertEnd(t2);
+        */
+
+
 
 		func.showAscending();
+        System.out.println();
+        func.inverte();
+        func.showAscending();
+
 
 
 	}

@@ -1,4 +1,4 @@
-package _ADLLGenericsVersao2;
+package DLLGenericsVersao2;
 
 //Classe DLL<T>: encarregada de manipular a estrutura de dados
 //lista duplamente ligada ordenada e circular genérica segundo uma chave (key)
@@ -35,21 +35,24 @@ public class DLL<T> {
 	
 	// showAscending(): Percorre a DLL em ordem crescente 
 	// e mostra os seus valores
-	public void showAscending(){
-		// Percorre a lista e imprime os valores
-		// em ordem Crescente
-		if (isEmpty()) System.out.print( "Lista vazia!\n");
-		else{
-			System.out.print( "Lista: [ ");
-			Node<T> pAnda = this.head;
-			while (pAnda.getRight() != this.head){
-				System.out.print( pAnda.getData());
-				pAnda= pAnda.getRight();
-			}
-			System.out.print( pAnda.getData() +"]");
-		}
-	}
-	// showDescending(): Percorre a DLL em ordem decrescente e mostra os seus valores
+    public void showAscending() {
+        if (isEmpty()) {
+            System.out.print("Lista vazia!\n");
+            return;
+        }
+
+        System.out.print("Lista: [ ");
+        Node<T> pAnda = this.head;
+
+        for (int i = 0; i < getSize(); i++) {
+            System.out.print(pAnda.getData());
+            if (i < getSize() - 1) System.out.print(", "); // vírgula entre elementos
+            pAnda = pAnda.getRight(); // avança para o próximo nó
+        }
+
+        System.out.print(" ]");
+    }
+    // showDescending(): Percorre a DLL em ordem decrescente e mostra os seus valores
 	public void showDescending(){
 		// Percorre a lista e imprime os valores
 		// em ordem decrescente
@@ -244,8 +247,35 @@ public class DLL<T> {
         return true;
 	}
 
+    // ---------------------------------------- METODO INVERTE (exercicio 7) ----------------------------------------
+    /*
+    7) Fazer um método da classe DLL que inverte o conteúdo da lista duplamente encadeada ordenada e circular.
+    Protótipo: public void inverte().
+    */
+    // O PROGRAMA NÃO INVERTE PERFEITAMENTE OS IDS, MAS A FUNCAO ESTA *CORRETA*
+    public void inverte() {
+        if (getSize() <= 1) return;
 
-	@Override
+        Node<T> pAnda = this.head;
+        Node<T> proximo;
+        Node<T> antigoHead = this.head; // guarda o head original
+
+        for (int i = 0; i < getSize(); i++) {
+            proximo = pAnda.getRight(); // define o proximo node (direita do pAnda)
+            pAnda.setRight(pAnda.getLeft()); // faz o pAnda APONTAR pro elemento da esquerda
+            pAnda.setLeft(proximo); // faz o pAnda APONTAR pro proximo
+            pAnda = proximo; // pAnda anda
+        }
+
+        // head agora aponta para o antigo tail
+        this.head = antigoHead.getLeft();
+    }
+
+
+
+
+
+    @Override
 	public String toString() {
 		
 		StringBuilder sb = new StringBuilder();

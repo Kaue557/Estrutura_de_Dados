@@ -1,4 +1,4 @@
-package Ex5_Lista_Encadeada.src;
+package Ex5_Lista_Encadeada;
 
 public class No<T> {
 

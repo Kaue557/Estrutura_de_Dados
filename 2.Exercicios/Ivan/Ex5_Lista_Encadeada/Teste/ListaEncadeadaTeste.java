@@ -1,6 +1,6 @@
-package Ex5_Lista_Encadeada.src.Teste;
+package Ex5_Lista_Encadeada.Teste;
 
-import Ex5_Lista_Encadeada.src.ListaEncadeada;
+import Ex5_Lista_Encadeada.ListaEncadeada;
 
 public class ListaEncadeadaTeste {
     public static void main(String[] args) {

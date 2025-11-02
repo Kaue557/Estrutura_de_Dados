@@ -290,8 +290,12 @@ public class CircleLinkedList<T> {
 	    }
 	}
 
-	// METODO INVERTE -----------------------------------------------------
-	public void inverte(){
+	// ---------------------------------------- METODO INVERTE (exercicio 6) ----------------------------------------
+    /*
+    6) Fazer um método da classe CircleLinkedList que inverte o conteúdo da lista ligada circular.
+    Protótipo: public void inverte().
+    */
+    public void inverte(){
         if(size <= 1){
             return;
         }

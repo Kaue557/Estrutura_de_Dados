@@ -1,4 +1,4 @@
-package _ADLLGenericsVersao2;
+package DLLGenericsVersao2;
 
 public class Node<T>{
 	private	int key;  // Key foi definida com inteiro, mas poderia ser String (por ex.)

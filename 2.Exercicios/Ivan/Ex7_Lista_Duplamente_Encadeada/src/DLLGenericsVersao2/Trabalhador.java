@@ -1,4 +1,4 @@
-package _ADLLGenericsVersao2;
+package DLLGenericsVersao2;
 
 // Classe relativa a um Trabalhador 
 // contendo os atributos registro de funcionário (refFunc), 
