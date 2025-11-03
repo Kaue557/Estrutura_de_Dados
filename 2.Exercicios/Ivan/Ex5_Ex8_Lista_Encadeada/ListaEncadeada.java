@@ -1,4 +1,4 @@
-package Ex5_Lista_Encadeada;
+package Ex5_Ex8_Lista_Encadeada;
 // 5. Fazer um metodo da classe LinkedList que inverte o conteúdo da lista ligada. Prototipo: public void inverte( ).
 
 public class ListaEncadeada<T>{
@@ -29,6 +29,11 @@ public class ListaEncadeada<T>{
         return this.tamanho == 0;
     }
 
+    // ---------------------------------------- METODO INVERTE (exercicio 5) ----------------------------------------
+    /*
+    5) Fazer um método da classe LinkedList que inverte o conteúdo da lista ligada.
+    Protótipo: public void inverte( ).
+    */
     public void inverte(){
         if (this.tamanho <= 1) {
             return; // Lista de tamanho 0 ou 1 já está "invertida"
@@ -48,6 +53,29 @@ public class ListaEncadeada<T>{
         this.ultimo = this.inicio;
         this.inicio = anterior;
     }
+
+    // ---------------------------------------- METODO CONCATENA (exercicio 8) ----------------------------------------
+    /*
+    8) Fazer um método da classe LinkedList que concatena uma outra lista no final da lista ligada.
+    Protótipo:  public void concatena(LinkedLIst<T> lista). Fazer  um programa main para testes.
+    */
+    public void concatena(ListaEncadeada<T> lista2){
+        if(lista2 == null || lista2.inicio == null){ // lista2 vazia
+            return;
+        }
+
+        this.ultimo.setProximo(lista2.inicio);
+        this.ultimo = lista2.ultimo;
+        this.tamanho += lista2.getTamanho();
+
+        // limpa a lista 2 - concatenacao esta na lista 1
+        lista2.inicio = null;
+        lista2.ultimo = null;
+        lista2.tamanho = 0;
+    }
+
+
+
 
     @Override
     public String toString() {

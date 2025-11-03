@@ -2,7 +2,7 @@ public class Pilha <T>{ // indicando que será pilha do tipo GENERICO
     //atributos
     private final static int TAM_DEFAULT = 100;
     private int topoPilha;
-    private T elementos[]; qq
+    private T elementos[];
 
     //construtores
     public Pilha(int tamanho){
