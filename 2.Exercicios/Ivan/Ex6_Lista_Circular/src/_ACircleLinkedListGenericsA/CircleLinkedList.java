@@ -315,6 +315,18 @@ public class CircleLinkedList<T> {
 		this.tail = this.head;
 		this.head = pAnda;
 	}
+	// ---------------------------------------- METODO CONCATENA (exercicio 9) ----------------------------------------
+	/*
+	9) Fazer um método da classe CircleLinkedList que concatena uma outra lista ligada circular no
+	final da original interna à classe. Protótipo: public void concatena(CircleLinkedList<T> lista).
+	*/
+
+	public void concatena(CircleLinkedList<T> nova_lista){
+
+
+	}
+
+
 
 
 	@Override
