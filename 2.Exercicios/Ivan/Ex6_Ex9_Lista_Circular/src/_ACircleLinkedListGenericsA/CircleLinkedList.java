@@ -322,9 +322,23 @@ public class CircleLinkedList<T> {
 	*/
 
 	public void concatena(CircleLinkedList<T> nova_lista){
+		// obrigatorio tratar a primeira lista como "this"
+        if(nova_lista.getSize() == 0) return;
+        if(this.getHead() == null){
+			this.head = nova_lista.getHead();
+			this.tail = nova_lista.getTail();
+			this.tail.setProx(this.head);
+			this.size = nova_lista.getSize();
+			return;
+		}
 
+        this.getTail().setProx(nova_lista.getHead()); // liga o ultimo node da lista 1 no head da nova lista
+        nova_lista.getTail().setProx(this.head); // liga o ultimo node da nova lista no head da lista 1 (mantendo circularidade)
 
+        this.tail = nova_lista.getTail(); // atualiza o tail
+		size += nova_lista.getSize(); // atualiza o tamanho da lista
 	}
+
 
 
 
