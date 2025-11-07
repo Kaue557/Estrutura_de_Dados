@@ -7,7 +7,7 @@ package DLLGenericsVersao2;
 // e toString.
 //Autor1: Ivan Carlos Alcântara de Oliveira.
 //Data da Criação: 10/10/2024. 15h.
-public class Trabalhador{
+public class Trabalhador {
 		private int id, idade;
 		private String regFunc;
 		private char sexo;
@@ -57,10 +57,17 @@ public class Trabalhador{
 	  	public void setCargo(String cargo){
     		this.cargo = cargo;
   	    } 
+
+		@Override
+		public int hashCode() {
+			return id;
+		}
+
 		@Override
 		public String toString()  {
 				StringBuilder sb = new StringBuilder();
 				sb.append("\n[Trabalhador] ")
+					.append(hashCode())
 					.append("reg.:")
 					.append(regFunc)
 					.append(", id: ")

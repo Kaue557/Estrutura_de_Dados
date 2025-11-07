@@ -86,7 +86,7 @@ public class DLL<T> {
 		    // Caso contrário, procura posição de inserção
 		    // na ordem crescente de valores
 			Node<T> pAnda = this.head, pAnt = null;
-			while (pAnda.getRight() != head && pAnda.getKey() < Key){
+			while (pAnda.getRight() != head && pAnda.getKey() < Key){ // AQUI ÓOOOOO
 					pAnt = pAnda;
 					pAnda = pAnda.getRight();
 			}	
@@ -258,9 +258,9 @@ public class DLL<T> {
 
         Node<T> pAnda = this.head;
         Node<T> proximo;
-        Node<T> antigoHead = this.head; // guarda o head original
+        // Node<T> antigoHead = this.head; // guarda o head original
 
-        for (int i = 0; i < getSize(); i++) {
+        for (int i = 0; i < getSize()+1; i++) {
             proximo = pAnda.getRight(); // define o proximo node (direita do pAnda)
             pAnda.setRight(pAnda.getLeft()); // faz o pAnda APONTAR pro elemento da esquerda
             pAnda.setLeft(proximo); // faz o pAnda APONTAR pro proximo
@@ -268,7 +268,7 @@ public class DLL<T> {
         }
 
         // head agora aponta para o antigo tail
-        this.head = antigoHead.getLeft();
+        this.head = pAnda;
     }
 
 
@@ -288,6 +288,7 @@ public class DLL<T> {
 	      sb.append(pAnda.getData());
 	      qtde++;
 	      pAnda = pAnda.getRight();
+		  sb.append("\n");
 	    }
 	    sb.append("]\n");
 	    
