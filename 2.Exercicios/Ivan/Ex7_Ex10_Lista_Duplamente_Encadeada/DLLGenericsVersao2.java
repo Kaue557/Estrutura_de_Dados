@@ -1,4 +1,4 @@
-package DLLGenericsVersao2;
+package Ex7_Ex10_Lista_Duplamente_Encadeada;
 
 
 //Classe _ADLLGenericsVersao2: encarregada de executar alguns 
@@ -25,45 +25,33 @@ public class DLLGenericsVersao2 {
 		func.insertAscending(9, new Trabalhador(9, 43, "1000823", 'F', 8000.0f, "Programador Sr."));
 		func.insertAscending(10, new Trabalhador(10, 63, "0665340", 'F', 10000.0f, "Presidente"));
 	}
-	public static void main(String[] args) {	
-		DLL<Trabalhador> func = new DLL<Trabalhador>();
-		bancoDeDados(func);
 
-        /*
-		System.out.println("*** Funcionários ordenados por id ***");
-		System.out.println(func);
-		int key = 5;
-		Node<Trabalhador> funcionario = func.search(key);
-		System.out.print("Funcionário de chave " + key + ": ");
-		System.out.print(funcionario.getData()+ "\n");
-		key = 6;
-		funcionario = func.search(key);
-		if (func.remove(key)) {
-			System.out.println("\nFuncionário " + key + " removido com sucesso!");
-			System.out.println("Dados do Funcionário: " + funcionario.getData());
-		} else
-			System.out.println("Funcionário" + key + " não foi encontrado!");			
-		System.out.println("Funcionários em ordem crescente: ");
-		func.showAscending();
-		System.out.println("\nFuncionários em ordem decrescente: ");
-		func.showDescending();
+    public static void bancoDeDados2(DLL<Trabalhador> func) {
+        func.insertAscending(1, new Trabalhador(11, 33, "1165829", 'M', 5000.0f, "Analista Jr."));
+        func.insertAscending(2, new Trabalhador(12, 21, "1263815", 'M', 3000.0f, "Aux. Admin."));
 
+    }
 
-		Trabalhador t1 = new Trabalhador(11, 30, "Joao123", 'M', 20.0f, "Analista");
-		func.insertMiddle(t1);
+    public static void main(String[] args) {
 
-        Trabalhador t2 = new Trabalhador(12, 35, "Maria123", 'M', 40.0f, "Analista");
-        func.insertEnd(t2);
-        */
+        // Lista principal
+        DLL<Trabalhador> func = new DLL<Trabalhador>();
+        bancoDeDados(func);
 
+        // Segunda lista a ser concatenada
+        DLL<Trabalhador> func2 = new DLL<Trabalhador>();
+        bancoDeDados2(func2);
 
-
-		func.showAscending();
-        System.out.println();
-        func.inverte();
+        System.out.println("=== LISTA 1 (ORIGINAL) ===");
         func.showAscending();
 
+        System.out.println("\n=== LISTA 2 (A SER CONCATENADA) ===");
+        func2.showAscending();
 
+        // Teste da função concatena
+        func.concatena(func2);
 
-	}
+        System.out.println("\n=== LISTA FINAL CONCATENADA ===");
+        func.showAscending();
+    }
 }

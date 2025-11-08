@@ -1,22 +1,19 @@
-package DLLGenericsVersao2;
+package Ex6_Ex9_Lista_Circular;
 
 // Classe relativa a um Trabalhador 
-// contendo os atributos registro de funcionário (refFunc), 
-// id, idade, sexo, salario e
+// contendo os atributos id, idade, sexo, salario e
 // cargo. Além dos métodos getters, setters, construtor
 // e toString.
 //Autor1: Ivan Carlos Alcântara de Oliveira.
 //Data da Criação: 10/10/2024. 15h.
 public class Trabalhador {
 		private int id, idade;
-		private String regFunc;
 		private char sexo;
 		private float salario;
 		private String cargo;
-		public Trabalhador(int id, int idade, String regFunc, char sexo, float salario, String cargo){ 
+		public Trabalhador(int id, int idade, char sexo, float salario, String cargo){ 
 			this.id = id; 
 			this.idade = idade;
-			this.regFunc = regFunc;
 			this.sexo = sexo;
 			this.salario = salario; 
 			this.cargo = cargo;
@@ -27,9 +24,6 @@ public class Trabalhador {
 		public int getIdade(){
     		return idade;
   	    }
-		public String getRegFunc() {
-			return regFunc;
-		}
 		public char getSexo(){
     		return sexo;
 		}
@@ -45,9 +39,6 @@ public class Trabalhador {
 	  	public void setIdade(int idade){
     		this.idade = idade;
 	  	}
-	  	public void setRegFunc(String regFunc) {
-	  		this.regFunc = regFunc;
-	  	}
 	  	public void setSexo(char sexo){
     		this.sexo = sexo;
 	  	}
@@ -56,21 +47,11 @@ public class Trabalhador {
 	  	}
 	  	public void setCargo(String cargo){
     		this.cargo = cargo;
-  	    } 
-
-		@Override
-		public int hashCode() {
-			return id;
-		}
-
+  	    }
 		@Override
 		public String toString()  {
 				StringBuilder sb = new StringBuilder();
-				sb.append("\n[Trabalhador] ")
-					.append(hashCode())
-					.append("reg.:")
-					.append(regFunc)
-					.append(", id: ")
+				sb.append("\n[Trabalhador] Id: ")
 					.append(id)
 					.append(", sexo: ")
 					.append(sexo)

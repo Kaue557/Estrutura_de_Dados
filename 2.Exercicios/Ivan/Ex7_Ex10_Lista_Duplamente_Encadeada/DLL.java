@@ -1,4 +1,4 @@
-package DLLGenericsVersao2;
+package Ex7_Ex10_Lista_Duplamente_Encadeada;
 
 //Classe DLL<T>: encarregada de manipular a estrutura de dados
 //lista duplamente ligada ordenada e circular genérica segundo uma chave (key)
@@ -249,7 +249,7 @@ public class DLL<T> {
 
     // ---------------------------------------- METODO INVERTE (exercicio 7) ----------------------------------------
     /*
-    7) Fazer um método da classe DLL que inverte o conteúdo da lista duplamente encadeada ordenada e circular.
+    7) Fazer um metodo da classe DLL que inverte o conteúdo da lista duplamente encadeada ordenada e circular.
     Protótipo: public void inverte().
     */
     // O PROGRAMA NÃO INVERTE PERFEITAMENTE OS IDS, MAS A FUNCAO ESTA *CORRETA*
@@ -271,8 +271,48 @@ public class DLL<T> {
         this.head = pAnda;
     }
 
+    // ---------------------------------------- METODO CONCATENA (exercicio 10) ----------------------------------------
+    /*
+    10) Fazer um metodo da classe DLL que concatena uma outra DLL (versão 1 e 2) no final da lista
+    ligada da classe DLL original. Protótipo:  public void concatena(DLL<T> lista).
+    */
 
+    public void concatena(DLL<T> nova_lista){
+        Node <T> pAnda;
+        Node<T> tail1 = this.head;
+        Node<T> head2 = nova_lista.getHead();
+        Node<T> tail2 = head2;
 
+        if(nova_lista.getHead() == null) return;
+        if (this.head == null) {
+            this.head = nova_lista.getHead();
+            this.size = nova_lista.getSize();
+            return;
+        }
+
+        pAnda = head; // começa percorrendo do início
+
+        // anda até o tail da primeira lista
+        while (tail1.getRight() != this.head) {
+            tail1 = tail1.getRight();
+        }
+
+        // anda até o tail da segunda lista
+        while (tail2.getRight() != head2) {
+            tail2 = tail2.getRight();
+        }
+
+        // liga tail1 -> head2
+        tail1.setRight(head2);
+        head2.setLeft(tail1);
+
+        // liga tail2 -> head1 (fecha o ciclo)
+        tail2.setRight(this.head);
+        this.head.setLeft(tail2);
+
+        // atualiza o tamanho total
+        this.size += nova_lista.getSize();
+    }
 
 
     @Override

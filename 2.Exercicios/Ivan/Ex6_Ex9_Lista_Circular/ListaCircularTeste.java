@@ -1,4 +1,4 @@
-package _ACircleLinkedListGenericsA;
+package Ex6_Ex9_Lista_Circular;
 
 public class ListaCircularTeste {
     public static void main(String[] args) {

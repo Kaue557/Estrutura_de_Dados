@@ -1,4 +1,4 @@
-package DLLGenericsVersao2;
+package Ex7_Ex10_Lista_Duplamente_Encadeada;
 
 public class Node<T>{
 	private	int key;  // Key foi definida com inteiro, mas poderia ser String (por ex.)
