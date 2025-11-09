@@ -31,7 +31,7 @@ public class ListaEncadeada<T>{
 
     // ---------------------------------------- METODO INVERTE (exercicio 5) ----------------------------------------
     /*
-    5) Fazer um método da classe LinkedList que inverte o conteúdo da lista ligada.
+    5) Fazer um metodo da classe LinkedList que inverte o conteúdo da lista ligada.
     Protótipo: public void inverte( ).
     */
     public void inverte(){
@@ -56,7 +56,7 @@ public class ListaEncadeada<T>{
 
     // ---------------------------------------- METODO CONCATENA (exercicio 8) ----------------------------------------
     /*
-    8) Fazer um método da classe LinkedList que concatena uma outra lista no final da lista ligada.
+    8) Fazer um metodo da classe LinkedList que concatena uma outra lista no final da lista ligada.
     Protótipo:  public void concatena(LinkedLIst<T> lista). Fazer  um programa main para testes.
     */
     public void concatena(ListaEncadeada<T> lista2){
@@ -74,6 +74,29 @@ public class ListaEncadeada<T>{
         lista2.tamanho = 0;
     }
 
+    // ---------------------------------------- METODO REMOVE REPETIDO ------------------------------------------------
+
+    // funcao remove elementos repetidos e retorna quantos foram retirados
+    public int removerRepetidos(){
+        No<T> pAnda = inicio; // inicia apontando para o head
+        No<T> proximo = inicio.getProximo();
+        int repete_cont = 0; // quantas vezes os nodes se repetem
+
+        while(pAnda != null && proximo != null){
+            if(pAnda.getElemento().equals(proximo.getElemento())){
+                pAnda.setProximo(proximo.getProximo()); // atualiza o ponteiro de pAnda
+                proximo.setProximo(null); // remove
+                repete_cont++; // atualiza quantos foram retirados
+                // agora o primeiro elemento repetido deve ter sido removido e a lista linkada corretamente
+                proximo = pAnda.getProximo();
+            }else{
+                pAnda = pAnda.getProximo();
+                proximo = proximo.getProximo();
+            }
+        }
+
+        return repete_cont;
+    }
 
 
 
