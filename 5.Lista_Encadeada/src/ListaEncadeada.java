@@ -54,8 +54,35 @@ public class ListaEncadeada<T>{
         return removido;
     }
 
-    // FUNCAO REMOVER QUALQUER POSICAO
+    private boolean posicaoNaoExiste(int posicao){
+        return !(posicao >= 0 && posicao <= this.tamanho);
+    }
 
+
+    // FUNCAO REMOVER QUALQUER POSICAO
+    public T remove(int posicao){
+
+        if(this.posicaoNaoExiste(posicao)){
+            throw new IllegalArgumentException("posicao nao existe!");
+        }
+        if(posicao == 0){ // se quiser remover do inicio
+            return this.removeInicio();
+        }
+        if(posicao == this.tamanho - 1){ // se quiser remover do final
+            return this.removeFinal();
+        }
+
+        // LOGICA
+        No<T> anterior = this.buscaNo(posicao - 1);
+        No<T> atual = anterior.getProximo();
+        No<T> proximo = atual.getProximo();
+
+        anterior.setProximo(proximo);
+        atual.setProximo(null);
+        this.tamanho--;
+
+        return atual.getElemento();
+    }
 
 
     public int getTamanho(){
