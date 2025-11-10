@@ -91,11 +91,53 @@ public class ListaEncadeada<T>{
                 proximo = pAnda.getProximo();
             }else{
                 pAnda = pAnda.getProximo();
-                proximo = proximo.getProximo();
+                proximo = proximo.getProximo(); //  1 -> 2 -> 3 -> 1
             }
         }
 
         return repete_cont;
+    }
+
+    // ---------------------------------------- METODO REMOVE ENTRE ------------------------------------------------
+    // metodo removerEntre(noPrimeiro, noUltimo) - escolhe quais nodes quer remover (inclusive)
+    public void removerEntre(T elem1, T elem2){
+        if (inicio == null) return; // lista vazia
+
+        No<T> atual = inicio;
+        No<T> noPrimeiro = null; // achar o elemento de noPrimeiro
+        No<T> noUltimo = null; // achar o elemento de noUltimo
+
+        while(atual != null && noPrimeiro == null){ //  X -> C -> V -> T -> G
+            if(atual.getElemento().equals(elem1)){
+                noPrimeiro = atual;
+            }else{
+                atual = atual.getProximo();
+            }
+        }
+        // se não encontrou o primeiro, sai
+        if (noPrimeiro == null) return;
+
+        noUltimo = noPrimeiro;
+        while(noUltimo != null && !noUltimo.getElemento().equals(elem2)){
+            noUltimo = noUltimo.getProximo();
+        }
+        // se não encontrou o segundo, sai
+        if (noUltimo == null) return;
+
+        // agora temos: noPrimeiro (início da remoção), noUltimo (fim da remoção)
+        // precisamos achar o nó anterior ao noPrimeiro
+        No<T> anterior = null;
+        No<T> p = inicio;
+        while (p != null && p != noPrimeiro) {
+            anterior = p;
+            p = p.getProximo();
+        }
+
+        // liga o anterior diretamente ao nó após o último
+        if (anterior != null)
+            anterior.setProximo(noUltimo.getProximo());
+        else
+            inicio = noUltimo.getProximo(); // se o primeiro nó removido era o head
     }
 
 
