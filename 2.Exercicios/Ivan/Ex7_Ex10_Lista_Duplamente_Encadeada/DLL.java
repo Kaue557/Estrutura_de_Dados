@@ -315,6 +315,27 @@ public class DLL<T> {
     }
 
 
+    // ---------------------------------------- REMOVE OCORRENCIAS -----------------------------------------------------
+    /*
+    Fazer um metodo que remove todas as ocorrencias de um certo numero de uma lista (se tem 3 vezes o '7' remover todos)
+    */
+
+    public boolean achou(){ //colocar parametro?
+
+        return true;
+    }
+
+    public void removeTodos(T dado){
+        Node<T> atual = this.head;
+
+        while(atual.getRight() != this.head){
+            while(!(atual.getData().equals(dado)) && atual.getRight() != this.head){
+            atual = atual.getRight(); // anda enquanto nao acha o numero e nao chega no final da lista
+        }
+        // remove e liga os ponteiros
+    }
+
+
     @Override
 	public String toString() {
 		
