@@ -292,7 +292,7 @@ public class CircleLinkedList<T> {
 
 	// ---------------------------------------- METODO INVERTE (exercicio 6) ----------------------------------------
     /*
-    6) Fazer um método da classe CircleLinkedList que inverte o conteúdo da lista ligada circular.
+    6) Fazer um metodo da classe CircleLinkedList que inverte o conteúdo da lista ligada circular.
     Protótipo: public void inverte().
     */
     public void inverte(){
@@ -317,7 +317,7 @@ public class CircleLinkedList<T> {
 	}
 	// ---------------------------------------- METODO CONCATENA (exercicio 9) ----------------------------------------
 	/*
-	9) Fazer um método da classe CircleLinkedList que concatena uma outra lista ligada circular no
+	9) Fazer um metodo da classe CircleLinkedList que concatena uma outra lista ligada circular no
 	final da original interna à classe. Protótipo: public void concatena(CircleLinkedList<T> lista).
 	*/
 
@@ -340,10 +340,47 @@ public class CircleLinkedList<T> {
 	}
 
 
+    // ---------------------------------------- METODO REMOVE PAR -----------------------------------------------------
+    public void removePares(T dado){ // LISTA SIMPLESMENTE CIRCULAR
+        if(this.size < 1) return; // lista vazia
+
+        Node<Integer> atual = (Node<Integer>) this.head;
+        Node<Integer> proximo = atual.getProx();
+        Node<Integer> anterior = null;
+        Node<T> ultimo = head;
+
+        while (ultimo.getProx() != head) {
+            ultimo = ultimo.getProx();
+        } // aqui temos a referencia para o tail
+
+        do{
+            if(atual.getData() % 2 == 0){ // se for par
+                if(atual == this.head){ // se o par estiver no comeco
+                    ultimo.setProx((Node<T>) proximo); // liga o ultimo no segundo elemento
+                    this.head = (Node<T>) proximo;
+                    anterior = atual;
+                    atual = proximo; // atual anda
+                    proximo = atual.getProx(); // proximo anda
+                    size--;
+                }else{ // remover do meio ou fim
+                    anterior.setProx(proximo); // liga o anterior no proximo, ignorando o removido
+                    atual = proximo; // atual anda
+                    proximo = atual.getProx(); // proximo anda
+                    size--;
+                }
+            }else{ // nao eh par
+                anterior = atual;
+                atual = proximo;
+                proximo = atual.getProx();
+            }
+        } while (atual != this.head);
+    }
 
 
 
-	@Override
+
+
+    @Override
 	public String toString() {
 		
 		StringBuilder sb = new StringBuilder();
