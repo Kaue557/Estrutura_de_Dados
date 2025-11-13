@@ -318,21 +318,39 @@ public class DLL<T> {
     // ---------------------------------------- REMOVE OCORRENCIAS -----------------------------------------------------
     /*
     Fazer um metodo que remove todas as ocorrencias de um certo numero de uma lista (se tem 3 vezes o '7' remover todos)
+    fazer em lista duplamente encadeada e circular*
     */
 
-    public boolean achou(){ //colocar parametro?
+    public void removeTodos(T dado){ //NAO CONFERI SE ESTAH 100% CERTO
+        // edge-cases
+        if(this.head == null) return; // lista vazia
 
-        return true;
-    }
-
-    public void removeTodos(T dado){
-        Node<T> atual = this.head;
-
-        while(atual.getRight() != this.head){
-            while(!(atual.getData().equals(dado)) && atual.getRight() != this.head){
-            atual = atual.getRight(); // anda enquanto nao acha o numero e nao chega no final da lista
+        if (this.size == 1){
+            if (this.head.getData().equals(dado))
+                this.head = null;
+            return;
         }
-        // remove e liga os ponteiros
+
+        Node<T> atual = this.head;
+        Node<T> proximo = atual.getRight();
+
+        do {
+            if(atual.getData().equals(dado)){
+                if(atual == this.head){
+                    this.head = proximo;
+                }
+
+                atual.getLeft().setRight(proximo); // liga o anteiror no proximo
+                proximo.setLeft(atual.getLeft()); // liga o proximo no anterior
+
+                atual = atual.getRight(); // atual anda para proxima comparacao
+                proximo = atual.getRight(); // atualiza proximo
+
+                // agora o no removido nao tem mais referencias
+                this.size--;
+            }
+            atual = atual.getRight();
+        } while(atual != this.head);
     }
 
 
